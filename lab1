@@ -1,0 +1,104 @@
+// triangle.js
+// Інструкція з використання
+console.log("Використання функції: triangle(value1, type1, value2, type2)");
+console.log("Де type ∈ { 'leg', 'hypotenuse', 'adjacent angle', 'opposite angle', 'angle' }");
+console.log("Наприклад: triangle(4, 'leg', 8, 'hypotenuse');\n");
+
+function triangle(val1, type1, val2, type2) {
+    // Перетворимо в нижній регістр на випадок помилки у великих буквах
+    type1 = type1.toLowerCase();
+    type2 = type2.toLowerCase();
+
+    // Функція для переведення градусів у радіани і навпаки
+    const toRad = deg => deg * Math.PI / 180;
+    const toDeg = rad => rad * 180 / Math.PI;
+
+    // Перевірка правильності типів
+    const validTypes = ["leg", "hypotenuse", "adjacent angle", "opposite angle", "angle"];
+    if (!validTypes.includes(type1) || !validTypes.includes(type2)) {
+        console.log("Невірно вказаний тип аргументів. Перечитайте інструкцію.");
+        return "failed";
+    }
+
+    // Заборона від’ємних або нульових значень
+    if (val1 <= 0 || val2 <= 0) {
+        return "Значення повинні бути додатніми.";
+    }
+
+    // Змінні трикутника
+    let a, b, c, alpha, beta;
+
+    // Випадки розрахунку
+    try {
+        if ((type1 === "leg" && type2 === "hypotenuse") || (type2 === "leg" && type1 === "hypotenuse")) {
+            const leg = type1 === "leg" ? val1 : val2;
+            const hyp = type1 === "hypotenuse" ? val1 : val2;
+            if (leg >= hyp) return "Катет не може бути більшим або рівним гіпотенузі.";
+            const otherLeg = Math.sqrt(hyp ** 2 - leg ** 2);
+            const angleOpposite = toDeg(Math.asin(leg / hyp));
+            const otherAngle = 90 - angleOpposite;
+
+            a = leg;
+            b = otherLeg;
+            c = hyp;
+            alpha = angleOpposite;
+            beta = otherAngle;
+        }
+
+        else if (type1 === "leg" && type2 === "leg") {
+            a = val1;
+            b = val2;
+            c = Math.sqrt(a ** 2 + b ** 2);
+            alpha = toDeg(Math.atan(a / b));
+            beta = 90 - alpha;
+        }
+
+        else if ((type1 === "hypotenuse" && type2.includes("angle")) || (type2 === "hypotenuse" && type1.includes("angle"))) {
+            const hyp = type1 === "hypotenuse" ? val1 : val2;
+            const angle = type1.includes("angle") ? val1 : val2;
+            if (angle >= 90) return "Кут повинен бути гострим (менше 90°).";
+            const alpha = angle;
+            const beta = 90 - alpha;
+            a = hyp * Math.sin(toRad(alpha));
+            b = hyp * Math.sin(toRad(beta));
+            c = hyp;
+        }
+
+        else if ((type1 === "leg" && type2.includes("angle")) || (type2 === "leg" && type1.includes("angle"))) {
+            const leg = type1 === "leg" ? val1 : val2;
+            const angle = type1.includes("angle") ? val1 : val2;
+            if (angle >= 90) return "Кут повинен бути гострим (менше 90°).";
+            const alpha = angle;
+            const c = leg / Math.sin(toRad(alpha));
+            const beta = 90 - alpha;
+            const otherLeg = c * Math.sin(toRad(beta));
+            a = leg;
+            b = otherLeg;
+            return triangle(leg, "leg", c, "hypotenuse"); // повторне обчислення для стабільності
+        }
+
+        else {
+            console.log("Несумісна пара типів. Перечитайте інструкцію.");
+            return "failed";
+        }
+
+        // Вивід результатів
+        console.log("✅ Результати обчислення:");
+        console.log(`a (катет) = ${a.toFixed(3)}`);
+        console.log(`b (катет) = ${b.toFixed(3)}`);
+        console.log(`c (гіпотенуза) = ${c.toFixed(3)}`);
+        console.log(`alpha (кут навпроти a) = ${alpha.toFixed(2)}°`);
+        console.log(`beta (кут навпроти b) = ${beta.toFixed(2)}°`);
+        return "success";
+
+    } catch (e) {
+        console.log("Сталася помилка у виконанні.");
+        return "failed";
+    }
+}
+
+// 🔹 Приклади викликів:
+triangle(4, "leg", 8, "hypotenuse");
+triangle(8, "hypotenuse", 4, "leg");
+triangle(5, "leg", 30, "angle");
+triangle(6, "leg", 8, "leg");
