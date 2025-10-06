@@ -96,9 +96,3 @@ function triangle(val1, type1, val2, type2) {
         return "failed";
     }
 }
-
-// 🔹 Приклади викликів:
-triangle(4, "leg", 8, "hypotenuse");
-triangle(8, "hypotenuse", 4, "leg");
-triangle(5, "leg", 30, "angle");
-triangle(6, "leg", 8, "leg");
