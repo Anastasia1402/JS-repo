@@ -83,7 +83,7 @@ function triangle(val1, type1, val2, type2) {
         }
 
         // Вивід результатів
-        console.log("✅ Результати обчислення:");
+        console.log("Результати обчислення:");
         console.log(`a (катет) = ${a.toFixed(3)}`);
         console.log(`b (катет) = ${b.toFixed(3)}`);
         console.log(`c (гіпотенуза) = ${c.toFixed(3)}`);
