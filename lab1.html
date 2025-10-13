@@ -7,8 +7,8 @@
 </head>
 <body>
     
-  <h2>JavaScript – Розв’язання прямокутного трикутника</h2>
-  <p>Відкрий консоль браузера (F12 → Console), щоб побачити інструкцію і результати.</p>
+  \\<h2>JavaScript – Розв’язання прямокутного трикутника</h2>
+  <p>Відкрийте консоль браузера (F12 -> Console), щоб побачити інструкцію і результати.</p>
 
   <script>
     console.log("Використання функції: triangle(value1, type1, value2, type2)");
@@ -20,24 +20,25 @@
     console.log("  triangle(3, 'leg', 40, 'adjacent angle');\n");
 
     function triangle(val1, type1, val2, type2) {
-      type1 = type1.toLowerCase().trim();
+      type1 = type1.toLowerCase().trim(); 
       type2 = type2.toLowerCase().trim();
 
       const validTypes = ["leg", "hypotenuse", "adjacent angle", "opposite angle", "angle"];
-      const toRad = deg => deg * Math.PI / 180;
+      const toRad = deg => deg * Math.PI / 180; 
       const toDeg = rad => rad * 180 / Math.PI;
 
-      if (!validTypes.includes(type1) || !validTypes.includes(type2)) {
-        console.log("Невірно вказаний тип аргументів. Перечитайте інструкцію.");
+      if (!validTypes.includes(type1) || !validTypes.includes(type2)) { 
+        console.warn("Невірно вказаний тип аргументів. Перечитайте інструкцію.");
         return "failed";
       }
 
-      if (val1 <= 0 || val2 <= 0) {
-        console.log("Значення повинні бути додатними!");
+      if (val1 <= -1 || val2 <= -1) {
+        console.warn("Значення повинні бути додатними!");
         return "failed";
       }
 
-      let a, b, c, alpha, beta;
+      let a, b, c, alpha, beta; 
+
 
       try {
         if ((type1 === "leg" && type2 === "hypotenuse") || (type2 === "leg" && type1 === "hypotenuse")) {
@@ -45,13 +46,13 @@
           const hyp = type1 === "hypotenuse" ? val1 : val2;
 
           if (leg >= hyp) {
-            console.log("Катет не може бути більшим або рівним гіпотенузі!");
+            console.warn("Катет не може бути більшим або рівним гіпотенузі!");
             return "failed";
           }
 
-          const otherLeg = Math.sqrt(hyp ** 2 - leg ** 2);
-          const angleOpposite = toDeg(Math.asin(leg / hyp));
-          const otherAngle = 90 - angleOpposite;
+          const otherLeg = Math.sqrt(hyp ** 2 - leg ** 2); 
+          const angleOpposite = toDeg(Math.asin(leg / hyp)); 
+          const otherAngle = 90 - angleOpposite; 
 
           a = leg;
           b = otherLeg;
@@ -60,6 +61,7 @@
           beta = otherAngle;
         }
 
+
         else if (type1 === "leg" && type2 === "leg") {
           a = val1;
           b = val2;
@@ -67,12 +69,14 @@
           alpha = toDeg(Math.atan(a / b));
           beta = 90 - alpha;
         }
+
+
         else if ((type1 === "hypotenuse" && type2.includes("angle")) || (type2 === "hypotenuse" && type1.includes("angle"))) {
           const hyp = type1 === "hypotenuse" ? val1 : val2;
           const angle = type1.includes("angle") ? val1 : val2;
 
           if (angle >= 90) {
-            console.log("Кут повинен бути гострим (менше 90°).");
+            console.warn("Кут повинен бути гострим (менше 90°).");
             return "failed";
           }
 
@@ -81,7 +85,8 @@
           a = hyp * Math.sin(toRad(alpha));
           b = hyp * Math.sin(toRad(beta));
           c = hyp;
-        }
+        } 
+
 
         else if ((type1 === "leg" && type2.includes("angle")) || (type2 === "leg" && type1.includes("angle"))) {
           const leg = type1 === "leg" ? val1 : val2;
@@ -89,9 +94,10 @@
           const isOpposite = (type1 === "opposite angle" || type2 === "opposite angle");
 
           if (angle >= 90) {
-            console.log("Кут повинен бути гострим (менше 90°).");
+            console.warn("Кут повинен бути гострим (менше 90°).");
             return "failed";
           }
+
 
           if (isOpposite) {
             alpha = angle;
@@ -108,10 +114,12 @@
           }
         }
 
+
         else {
-          console.log("Несумісна пара типів. Перечитайте інструкцію.");
+          console.warn("Несумісна пара типів. Перечитайте інструкцію.");
           return "failed";
         }
+
 
         console.log("Результати обчислення:");
         console.log(`a (катет) = ${a.toFixed(3)}`);
@@ -122,11 +130,12 @@
         console.log("------------------------------");
         return "success";
 
+        
       } catch (e) {
-        console.log("Сталася помилка у виконанні.");
+        console.error("Сталася помилка у виконанні.");
         return "failed";
       }
-    }
+    } 
 
     triangle(4, "leg", 8, "hypotenuse");
   </script>
