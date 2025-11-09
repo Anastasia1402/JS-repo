@@ -1,8 +1,3 @@
-// -------------------------------
-// 1.2.11–1.2.31  (ES6 CLASSES)
-// -------------------------------
-
-// 1.2.12–1.2.15  Клас Square
 class Square {
   constructor(a) {
     this.a = a;
@@ -29,7 +24,8 @@ class Square {
   }
 }
 
-// 1.2.16–1.2.17  Клас Rectangle (успадкований від Square)
+
+
 class Rectangle extends Square {
   constructor(a, b) {
     super(a);
@@ -57,7 +53,8 @@ class Rectangle extends Square {
   }
 }
 
-// 1.2.18–1.2.19  Клас Rhombus (успадкований від Square)
+
+
 class Rhombus extends Square {
   constructor(a, alpha, beta) {
     super(a);
@@ -88,7 +85,8 @@ class Rhombus extends Square {
   }
 }
 
-// 1.2.20–1.2.21  Клас Parallelogram (успадкований від Rectangle)
+
+
 class Parallelogram extends Rectangle {
   constructor(a, b, alpha, beta) {
     super(a, b);
@@ -119,7 +117,7 @@ class Parallelogram extends Rectangle {
   }
 }
 
-// 1.2.22 Ґеттери і сеттери для Rhombus (бо Parallelogram створений від Rectangle)
+
 Object.defineProperties(Rhombus.prototype, {
   a: {
     get() {
@@ -150,28 +148,22 @@ Object.defineProperties(Rhombus.prototype, {
   }
 });
 
-// 1.2.23 Виклики help()
 Square.help();
 Rectangle.help();
 Rhombus.help();
 Parallelogram.help();
 
-// 1.2.24 Створення об’єктів
 const sq = new Square(5);
 const rect = new Rectangle(6, 3);
 const rh = new Rhombus(4, 120, 60);
 const par = new Parallelogram(7, 4, 110, 70);
 
-// Виклики info()
 sq.info();
 rect.info();
 rh.info();
 par.info();
 
 
-// -------------------------------
-// 1.2.25–1.2.26  Функція Triangular
-// -------------------------------
 
 function Triangular(a = 3, b = 4, c = 5) {
   return { a, b, c };
@@ -187,9 +179,6 @@ console.log(tri2);
 console.log(tri3);
 
 
-// -------------------------------
-// 1.2.27–1.2.28  Функція PiMultiplier
-// -------------------------------
 
 function PiMultiplier(mult) {
   return function() {
@@ -207,9 +196,6 @@ console.log(times3div2());
 console.log(divide2());
 
 
-// -------------------------------
-// 1.2.29–1.2.31  Функція Painter
-// -------------------------------
 
 function Painter(color) {
   return function(obj) {
@@ -220,6 +206,7 @@ function Painter(color) {
     }
   };
 }
+
 
 const PaintBlue = Painter("blue");
 const PaintRed = Painter("red");
@@ -233,3 +220,4 @@ console.log("=== Painter Demonstration ===");
 PaintBlue(obj1);
 PaintRed(obj2);
 PaintYellow(obj3);
+
