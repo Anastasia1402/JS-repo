@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Клікер Гра</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    overflow: hidden;
+  }
+  #gameArea {
+    position: relative;
+    width: 100vw;
+    height: 80vh;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+  }
+  #target {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div id="startScreen">
+  <h2>Виберіть рівень складності</h2>
+  <select id="difficultySelect">
+    <option value="3" selected>3 секунди</option>
+    <option value="2">2 секунди</option>
+    <option value="1">1 секунда</option>
+  </select>
+
+  <h2>Оберіть колір фігури</h2>
+  <select id="colorSelect">
+    <option value="green" selected>Зелений</option>
+    <option value="red">Червоний</option>
+    <option value="blue">Синій</option>
+    <option value="orange">Оранжевий</option>
+    <option value="purple">Фіолетовий</option>
+  </select>
+
+  <br><br>
+  <button id="startButton">Старт</button>
+</div>
+
+<div id="gameArea">
+  <div id="target"></div>
+  <p>Рахунок: <span id="score">0</span></p>
+  <p>Час для кліку: <span id="timeLeft"></span></p>
+</div>
+
+<script src="game.js"></script>
+
+</body>
+</html>
