@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", function() {
     score = 0;
     scoreDisplay.textContent = score;
 
-    // Отримати вибрані налаштування
+
     timePerClick = parseInt(difficultySelect.value, 10);
     const selectedColor = colorSelect.value;
 
-    // Приховати стартовий екран та показати гру
+
     startScreen.style.display = "none";
     target.style.backgroundColor = selectedColor;
     target.style.display = "block";
@@ -76,8 +76,9 @@ document.addEventListener("DOMContentLoaded", function() {
     target.removeEventListener("click", onTargetClick);
     alert(`Гру завершено. Ви програли! Ваш рахунок: ${score}`);
 
-    // Повернути користувача на стартовий екран для нової гри
+
     startScreen.style.display = "block";
     timeLeftDisplay.textContent = "";
   }
 });
+
