@@ -11,17 +11,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let score = 0;
   let timePerClick;
-  let intervalId;
   let countdownId;
 
   startButton.addEventListener("click", () => {
     score = 0;
     scoreDisplay.textContent = score;
 
-
     timePerClick = parseInt(difficultySelect.value, 10);
     const selectedColor = colorSelect.value;
-
 
     startScreen.style.display = "none";
     target.style.backgroundColor = selectedColor;
@@ -37,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function nextRound() {
-    clearInterval(intervalId);
     clearInterval(countdownId);
     timeLeft = timePerClick;
     timeLeftDisplay.textContent = timeLeft;
@@ -76,9 +72,9 @@ document.addEventListener("DOMContentLoaded", function() {
     target.removeEventListener("click", onTargetClick);
     alert(`Гру завершено. Ви програли! Ваш рахунок: ${score}`);
 
-
     startScreen.style.display = "block";
     timeLeftDisplay.textContent = "";
   }
 });
+
 
