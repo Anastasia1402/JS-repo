@@ -1,0 +1,6 @@
+[
+    {"id": 1, "name": "Electronics", "shortname": "electronics", "notes": "Electronic gadgets and devices."},
+    {"id": 2, "name": "Books", "shortname": "books", "notes": ""},
+    {"id": 3, "name": "Clothing", "shortname": "clothing", "notes": "Lorem ipsum dolor sit amet."},
+    {"id": 4, "name": "Home & Garden", "shortname": "home_garden", "notes": "Items for your home and garden."}
+]

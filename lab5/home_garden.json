@@ -1,0 +1,10 @@
+{
+    "category": {"name": "Home & Garden"},
+    "items": [
+        {"id": 1, "name": "Lamp", "shortname": "lamp", "description": "Modern desk lamp.", "price": "30 USD"},
+        {"id": 2, "name": "Chair", "shortname": "chair", "description": "Comfortable office chair.", "price": "100 USD"},
+        {"id": 3, "name": "Plant Pot", "shortname": "plant_pot", "description": "Decorative pot for plants.", "price": "10 USD"},
+        {"id": 4, "name": "Garden Hose", "shortname": "garden_hose", "description": "Durable hose for watering.", "price": "25 USD"},
+        {"id": 5, "name": "Blanket", "shortname": "blanket", "description": "Soft and warm blanket.", "price": "35 USD"}
+    ]
+}

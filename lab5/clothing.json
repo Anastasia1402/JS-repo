@@ -1,0 +1,10 @@
+{
+    "category": {"name": "Clothing"},
+    "items": [
+        {"id": 1, "name": "T-Shirt", "shortname": "tshirt", "description": "Comfortable cotton t-shirt.", "price": "20 USD"},
+        {"id": 2, "name": "Jeans", "shortname": "jeans", "description": "Classic blue jeans.", "price": "40 USD"},
+        {"id": 3, "name": "Jacket", "shortname": "jacket", "description": "Warm winter jacket.", "price": "60 USD"},
+        {"id": 4, "name": "Sneakers", "shortname": "sneakers", "description": "Sporty running shoes.", "price": "80 USD"},
+        {"id": 5, "name": "Hat", "shortname": "hat", "description": "Stylish baseball cap.", "price": "15 USD"}
+    ]
+}

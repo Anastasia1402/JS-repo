@@ -1,0 +1,10 @@
+{
+    "category": {"name": "Electronics"},
+    "items": [
+        {"id": 1, "name": "Laptop", "shortname": "laptop", "description": "A powerful laptop for work and gaming.", "price": "1200 USD"},
+        {"id": 2, "name": "Smartphone", "shortname": "smartphone", "description": "Latest smartphone with advanced features.", "price": "800 USD"},
+        {"id": 3, "name": "Headphones", "shortname": "headphones", "description": "Noise-cancelling wireless headphones.", "price": "150 USD"},
+        {"id": 4, "name": "Tablet", "shortname": "tablet", "description": "Portable tablet for entertainment.", "price": "400 USD"},
+        {"id": 5, "name": "Smartwatch", "shortname": "smartwatch", "description": "Fitness and health tracking smartwatch.", "price": "250 USD"}
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "category": {"name": "Books"},
+    "items": [
+        {"id": 1, "name": "Fiction Novel", "shortname": "fiction_novel", "description": "An engaging story full of adventure.", "price": "15 USD"},
+        {"id": 2, "name": "Science Textbook", "shortname": "science_textbook", "description": "Comprehensive guide to science.", "price": "50 USD"},
+        {"id": 3, "name": "Cookbook", "shortname": "cookbook", "description": "Recipes for delicious meals.", "price": "25 USD"},
+        {"id": 4, "name": "Biography", "shortname": "biography", "description": "Life story of a famous person.", "price": "20 USD"},
+        {"id": 5, "name": "Poetry Collection", "shortname": "poetry_collection", "description": "Beautiful verses and poems.", "price": "12 USD"}
+    ]
+}
